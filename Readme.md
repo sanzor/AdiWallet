@@ -1,4 +1,11 @@
-Prerequisites
+**AdiWallet** - simple NFT wallet 
+
+This is a console application that acts as an NFT wallet.
+You run the app which receives some subset of
+transactions, and processes them in such a way that enables the program to
+answer questions about NFT ownership.
+Thr program executes only a single command each time it is run, and
+will persist state between runs.
 
 Domain
 ![image](https://github.com/sanzor/AdiWallet/assets/26228414/9d943bc9-5baa-4f06-a331-e69d4e6a75d0)
