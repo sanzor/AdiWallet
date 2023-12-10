@@ -1,13 +1,13 @@
 ***AdiWallet*** - simple NFT wallet 
 
 This is a console application that acts as an NFT wallet.
-You run the app which receives some subset of
+- You run the app which receives some subset of
 transactions, and processes them in such a way that enables the program to
 answer questions about NFT ownership.
-Thr program executes only a single command each time it is run, and
+-The program executes only a single command each time it is run, and
 will persist state between runs.
 
-The program supports :
+Commands the program supports :
 - running transaction batch from a json file
 - running transaction batch inline (single or array of transactions)
 - reset wallet
@@ -16,7 +16,7 @@ The program supports :
   For more info about the specifications check out the doc [here](https://github.com/sanzor/AdiWallet/blob/master/docs/documentation)
 
 **Domain Schema**
-![image](https://github.com/sanzor/AdiWallet/assets/26228414/9d943bc9-5baa-4f06-a331-e69d4e6a75d0)
+![image](https://github.com/sanzor/AdiWallet/blob/master/docs/architecture.png)
 
 
 **Notes:**
