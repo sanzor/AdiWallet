@@ -14,9 +14,9 @@ using System.Reflection;
 using System.Text.Json;
 using System.Windows.Input;
 
-namespace IlluviumTests
+namespace AdiWalletTests
 {
-    public class IlluviumTests
+    public class AdiWalletTests
     {
         Func<bool> CleanStateFile = () =>
         {
