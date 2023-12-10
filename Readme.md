@@ -44,9 +44,9 @@ Commands the program supports :
 
 Go to the [target-folder] and open a Command Prompt terminal 
 
-Run :   AdiWallet.App.exe [arguments]
+Run :   `AdiWallet.App.exe [arguments]`
 
- EX:  
+**Example of running the program with some commands:**
 
     `AdiWallet.App.exe --nft somenft`
 
@@ -56,7 +56,7 @@ Run :   AdiWallet.App.exe [arguments]
 
     `AdiWallet.App.exe --read-inline "{\"Type\": \"Mint\", \"TokenId\": \"ab\", \"Address\": \"adi\"},{\"Type\": \"Transfer\", \"From\": \"adi\",\"To\": \"dan\", \"TokenId\": \"ab\"},{\"Type\": \"Burn\", \"TokenId\": \"ab\"}]"`
 
-    `Illuviu.App.exe reset`
+    `AdiWallet.App.exe reset`
 
 The project contains unit tests which can be run by going in the root directory of the source folder and running :
 
