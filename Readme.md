@@ -36,7 +36,6 @@ Commands the program supports :
       - tests for deserializing the messages
       - tests for running one message , a batch of messages
       - tests for the other commands , and testing if the resulting state written on disk is right
-  ```
 
 **Setting up:**
 
