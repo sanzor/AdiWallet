@@ -1,0 +1,131 @@
+
+This is a console application that acts as a wallet.
+You run the app which  receives some subset of
+transactions, and processes them in such a way that enables the program to
+answer questions about NFT ownership.
+Thr program executes only a single command each time it is run, and
+will persist state between runs.
+
+Messages
+The messages that the program handles are:
+Mint:
+1{
+2 "Type": "Mint",
+3 "TokenId": string,
+4 "Address": string
+5}
+A mint transaction creates a new token in the wallet with the provided address
+Burn:
+1{
+2 "Type": "Burn",
+3 "TokenId": string
+4}
+A burn transaction destroys the token with the given id.
+Transfer:
+1{
+2 "Type": "Transfer",
+3 "TokenId": string,
+4 "From": string,
+5 "To": string
+6}
+A transfer transaction changes ownership of a token by removing the “from”
+wallet address, and adds it to the “to” wallet address.
+
+
+Commands
+The program handles the following commands:
+1.Read Inline (--read-inline <json>)
+Reads either a single json element, or an array of json elements representing
+transactions as an argument.
+
+program --read-inline '{"Type": "Burn", "TokenId": “0x..."}'
+program --read-inline '[{"Type": "Mint", "TokenId": "0x...",
+"Address": "0x..."}, {"Type": "Burn", "TokenId": "0x..."}]'
+
+
+2.Read File (--read-file <file>)
+Reads either a single json element, or an array of json elements representing
+transactions from the file in the specified location.
+program --read-file transactions.json
+
+
+3. NFT Ownership (--nft <id>)
+Returns ownership information for the nft with the given id
+program --nft 0x...
+Wallet Ownership (--wallet <address>)
+Lists all NFTs currently owned by the wallet of the given address
+program --wallet 0x...
+
+
+4.Reset (--reset)
+Deletes all data previously processed by the program
+Sample Input / Output
+Given the file transactions.json with the following contents:
+
+1[
+2 {
+3 "Type": "Mint",
+4 "TokenId": "0xA000000000000000000000000000000000000000",
+5 "Address": "0x1000000000000000000000000000000000000000"
+6 },
+7 {
+8 "Type": "Mint",
+9 "TokenId": "0xB000000000000000000000000000000000000000",
+10 "Address": "0x2000000000000000000000000000000000000000"
+11 },
+12 {
+13 "Type": "Mint",
+14 "TokenId": "0xC000000000000000000000000000000000000000",15 "Address": "0x3000000000000000000000000000000000000000"
+16 },
+17 {
+18 "Type": "Burn",
+19 "TokenId": "0xA000000000000000000000000000000000000000"
+20 },
+21 {
+22 "Type": "Transfer",
+23 "TokenId": "0xB000000000000000000000000000000000000000",
+24 "From": "0x2000000000000000000000000000000000000000",
+25 "To": "0x3000000000000000000000000000000000000000"
+26 }
+27]
+Here is a sample of several sequential executions of the program:
+1. >program --read-file transactions.json
+2. Read 5 transaction(s)
+3.
+4. >program --nft 0xA000000000000000000000000000000000000000
+5. Token 0xA000000000000000000000000000000000000000 is not owned by any
+wallet
+6.
+7. >program --nft 0xB000000000000000000000000000000000000000
+8. Token 0xA000000000000000000000000000000000000000 is owned by
+0x3000000000000000000000000000000000000000
+9.
+10.>program -nft 0xC000000000000000000000000000000000000000
+11.Token 0xC000000000000000000000000000000000000000 is owned by
+0x3000000000000000000000000000000000000000
+12.
+13.>program --nft 0xD000000000000000000000000000000000000000
+14.Token 0xA000000000000000000000000000000000000000 is not owned by any
+wallet
+15.
+16.>program --read-inline '{ "Type": "Mint", "TokenId":
+"0xD000000000000000000000000000000000000000", "Address":
+"0x1000000000000000000000000000000000000000" }’
+17.Read 1 transaction(s)
+18.
+19.>program --nft 0xD000000000000000000000000000000000000000
+20.Token 0xA000000000000000000000000000000000000000 is owned by
+0x1000000000000000000000000000000000000000
+21.
+22.>program --wallet 0x3000000000000000000000000000000000000000
+23.Wallet 0x3000000000000000000000000000000000000000 holds 2 Tokens:
+24.0xB000000000000000000000000000000000000000
+25.0xC000000000000000000000000000000000000000
+26.
+27.>program —reset
+28.Program was reset
+29.
+30.>program --wallet 0x3000000000000000000000000000000000000000
+31.Wallet 0x3000000000000000000000000000000000000000 holds no Tokens
+
+
