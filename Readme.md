@@ -7,6 +7,14 @@ answer questions about NFT ownership.
 Thr program executes only a single command each time it is run, and
 will persist state between runs.
 
+The program supports :
+- running transaction batch from a json file
+- running transaction batch inline (single or array of transactions)
+- reset wallet
+- information about a NFT
+- information about a Wallet
+  For more info about the specifications check out the doc [here](https://github.com/sanzor/AdiWallet/blob/master/docs/documentation)
+
 **Domain Schema**
 ![image](https://github.com/sanzor/AdiWallet/assets/26228414/9d943bc9-5baa-4f06-a331-e69d4e6a75d0)
 
