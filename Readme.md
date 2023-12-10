@@ -10,14 +10,14 @@ The architecture is found in folder: docs
 - I have made heavy usage of  a functional library [LanguageExt]([louthy/language-ext: C# functional language extensions - a base class library for functional programming (github.com)](https://github.com/louthy/language-ext)) in order to make usage of Railway Programming (shortcircuit the flow at first error)
 - I have separated the project into 2 folders
   - src:
-    - Illuvium.App  - the console application
-    - Illuvium.Services - the place where logic logic resides
-    - Illuvium.Domain - the place where the domain model is placed ( all domain objects)
+    - AdiWallet.App  - the console application
+    - AdiWallet.Services - the place where logic logic resides
+    - AdiWallet.Domain - the place where the domain model is placed ( all domain objects)
       - Commands - NftInfo, WalletInfo, Reset, ReadFile , ReadInline
       - Messages - Burn, Mint ,Transfer
       - Domain objects - Wallet , NFT , AppState (this one holds the state of the app and gets flushed to disk at the end of the program)
   - tests
-    - Illuvium.Tests - contains XUnit tests for most of the logic
+    - AdiWallet.Tests - contains XUnit tests for most of the logic
       - tests for deserializing the messages
       - tests for running one message , a batch of messages
       - tests for the other commands , and testing if the resulting state written on disk is right
@@ -91,17 +91,17 @@ This is 4 hours of work in one day and another 6 hours in the next.
 
 Go to the [target-folder] and open a Command Prompt terminal 
 
-Run :   Illuvium.App.exe [arguments]
+Run :   AdiWallet.App.exe [arguments]
 
  EX:  
 
-    `Illuvium.App.exe --nft somenft`
+    `AdiWallet.App.exe --nft somenft`
 
-    `Illuvium.App.exe --wallet somewallet`
+    `AdiWallet.App.exe --wallet somewallet`
 
-    `Illuvium.App.exe --read-file myfile.json`
+    `AdiWallet.App.exe --read-file myfile.json`
 
-    `Illuvium.App.exe --read-inline "{\"Type\": \"Mint\", \"TokenId\": \"ab\", \"Address\": \"adi\"},{\"Type\": \"Transfer\", \"From\": \"adi\",\"To\": \"dan\", \"TokenId\": \"ab\"},{\"Type\": \"Burn\", \"TokenId\": \"ab\"}]"`
+    `AdiWallet.App.exe --read-inline "{\"Type\": \"Mint\", \"TokenId\": \"ab\", \"Address\": \"adi\"},{\"Type\": \"Transfer\", \"From\": \"adi\",\"To\": \"dan\", \"TokenId\": \"ab\"},{\"Type\": \"Burn\", \"TokenId\": \"ab\"}]"`
 
     `Illuviu.App.exe reset`
 
