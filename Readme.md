@@ -1,5 +1,7 @@
 Prerequisites
 
+Domain
+![image](https://github.com/sanzor/AdiWallet/assets/26228414/9d943bc9-5baa-4f06-a331-e69d4e6a75d0)
 
 The project was done using .NET 6 , C#  and Visual Studio 2022 as a tool
 
