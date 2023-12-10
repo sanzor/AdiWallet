@@ -1,0 +1,15 @@
+{
+  "profiles": {
+    "Illuvium.App": {
+      "commandName": "Project",
+      "commandLineArgs": "--read-inline [{\"Type\": \"Mint\", \"TokenId\": \"0xx35\",\r\n\"Address\": \"0xxx33\"}, {\"Type\": \"Burn\", \"TokenId\": \"0xx34\"}]"
+    },
+    "Profile 1": {
+      "commandName": "Executable"
+    },
+    "Profile 2": {
+      "commandName": "Project",
+      "commandLineArgs": "--read-file[{\"Type\": \"Mint\", \"TokenId\": \"0xx35\",\r\n\"Address\": \"0xxx33\"}, {\"Type\": \"Burn\", \"TokenId\": \"0xx34\"}]"
+    }
+  }
+}
